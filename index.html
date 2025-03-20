@@ -3,26 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Developer Portfolio</title>
-    <!-- Fix stylesheet link - make sure it matches the actual filename -->
+    <title>Peiyu Liu - Academic Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Add fallback style in case the external CSS fails to load -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Critical styles as fallback */
-        body {
-            background-color: #e6d6ff;
-            color: #00994d;
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-        }
-        
-        /* Prevent overscroll bounce effect */
         html, body {
+            background-color: #ffffff;
+            color: #333333;
+            font-family: 'Poppins', sans-serif;
             overscroll-behavior: none;
-            height: 100%;
+        }
+        header {
+            background-color: #e6d6ff;
         }
     </style>
 </head>
@@ -34,7 +28,7 @@
                 <li><a href="#about"><span class="nav-number">0.</span> ABOUT</a></li>
                 <li><a href="#skills"><span class="nav-number">1.</span> SKILLS</a></li>
                 <li><a href="#work"><span class="nav-number">2.</span> WORK</a></li>
-                <li><a href="#projects"><span class="nav-number">3.</span> PROJECTS</a></li>
+                <li><a href="#publications"><span class="nav-number">3.</span> PUBLICATIONS</a></li>
                 <li><a href="#contact"><span class="nav-number">4.</span> CONTACT</a></li>
                 <li><a href="#resume"><span class="nav-number">5.</span> RESUME</a></li>
             </ul>
@@ -43,12 +37,10 @@
 
     <main>
         <section id="home" class="hero">
-            <div class="name-glow">Your Name</div>
-            <div class="title-text">CODE WIZARD</div>
+            <div class="name-glow">Peiyu Liu</div>
+            <div class="title-text">Ph.D in Biostatistics</div>
             <p class="intro-text">
-                Self-taught programmer motivated by passion and
-                personal projects. Expert of searching bugs on Google
-                and quickly scanning the best StackOverflow answers.
+                Academic researcher with expertise in mathematical modeling of epidemics, biostatistics, and computational mathematics. Currently conducting research at the University of Florida with a focus on statistical methods in clinical trials and survival analysis.
             </p>
             <div class="cta-buttons">
                 <a href="#contact" class="btn primary-btn">Contact Me</a>
@@ -56,26 +48,280 @@
             </div>
         </section>
 
-        <!-- Rest of the content remains the same -->
-        <!-- ... -->
+        <section id="about" class="about-section">
+            <h2 class="section-title">ABOUT</h2>
+            
+            <div class="about-content">
+                <div class="bio-section">
+                    <h3>Education</h3>
+                    <div class="education-item">
+                        <div class="education-title">Ph.D in Biostatistics</div>
+                        <div class="education-institution">University of Florida</div>
+                        <div class="education-date">August 2023 - Present</div>
+                        <div class="education-description">
+                            <ul>
+                                <li>Coursework: Large Sample Theory, Computing, Advanced Biostas Methods, Analytical methods to infectious diseases modeling, etc.</li>
+                            </ul>
+                        </div>
+                    </div>
 
+                    <div class="education-item">
+                        <div class="education-title">MS in Computational Mathematics</div>
+                        <div class="education-institution">Shaanxi Normal University</div>
+                        <div class="education-date">August 2018 - June 2021</div>
+                        <div class="education-description">
+                            <ul>
+                                <li>Coursework: Advanced Biomathematics, Stochastic Processing, Stability and Qualitative Theory of Differential Equations, Advanced Analysis, Impulse Dynamical System, Common Mathematical Software and Biomathematics, etc.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="education-title">BS in Statistics</div>
+                        <div class="education-institution">Shaanxi Normal University</div>
+                        <div class="education-date">August 2013 - June 2017</div>
+                        <div class="education-description">
+                            <ul>
+                                <li>Coursework: Advanced Algebra, Mathematical Analysis, Probability Theory, Statistical Analysis and Software, Mathematical Statistics, Mathematical Modeling, Practical Regression Analysis, Stochastic Process, Multivariate Statistical Analysis, Statistical Computing, Time Series Analysis, Experiment Design, Applied Statistics, etc.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="work" class="work-section">
+            <h2 class="section-title">RESEARCH EXPERIENCE</h2>
+            <div class="experience-item">
+                <div class="experience-title">Research Assistant</div>
+                <div class="experience-company">University of Florida, Department of Biostatistics</div>
+                <div class="experience-date">August 2023 - Present</div>
+                <div class="experience-description">
+                    <ul>
+                        <li>The Cox-ph model in survival analysis was used to study the impact of children's gender, age, term status, etc. on the prevalence of influenza.</li>
+                        <li>Clinical trial statistical methods are used to assess efficacy at different end-points.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-title">Research Fellow and Lecturer</div>
+                <div class="experience-company">Hunan Institute of Science and Technology, School of Mathematics</div>
+                <div class="experience-date">December 2021 - August 2023</div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Established a three-dimension pulsed differential equations describing the relationship between concentration of Tumor Cells (TCs), Effect Cells (ECs) and Helper TCells(HTCs).</li>
+                        <li>Proved theoretically the existence and stability of tumor-free periodic solution.</li>
+                        <li>Conducted a bifurcation analysis on parameters of the intensity of radioimmunotherapy, activation rate and birth rate of the ECs, then to study control effect of different therapy strategies on threshold of the tumor-free periodic solution of the TCs.</li>
+                        <li>Taught Probability Theory and Mathematical Statistics to around 200 students of sophomore, 243 class hours in total.</li>
+                        <li>Prepared comprehensive syllabus and designed assignment based on updated curriculum from the China department of Education.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-title">Researcher in Lab of Statistics</div>
+                <div class="experience-company">Chang'an University, School of Mathematic and Statistics</div>
+                <div class="experience-date">December 2021 - July 2022</div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Used the three spline interpolation method to supplement the sample data which was weather data of 10 countries in the world, then used descriptive statistical analysis and spatial visualization including bivariate choropleth maps to display the data.</li>
+                        <li>Used the cross-correlation function to study the causal relationship, contemporaneous relationship and feedback relationship between the time series of meteorological variables (temperature, humidity, wind, etc.) and the time series of daily cases of COVID-19 in 10 countries, then established suitable Generalized Additive Model (GAM).</li>
+                        <li>Used the GAM model and relative risk to study how the meteorological conditions and Air Quality Index affect the COVID-19 infection dynamics in 10 countries.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-title">Researcher in Lab of Biostatistics</div>
+                <div class="experience-company">Shaanxi Normal University, School of Mathematic and Statistical</div>
+                <div class="experience-date">September 2018 - July 2021</div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Set up key parameter functions such as contact rate and diagnosis rate based on control intervention and COVID-19 case curves; then established the corresponding continuous and discrete epidemic SEIAR compartment models.</li>
+                        <li>Applied the Nonlinear least square or Bootstrap or MCMC method combined with sensitivity analysis to investigate the outbreak dynamic of COVID-19 under different sets of vaccination and Non-Pharmaceutical Interventions (NPIs) and to quantitative assessment control effect of the interventions.</li>
+                        <li>Adopted threshold analysis method to solve the minimum vaccine coverage rate to avoid reoccurrence of outbreaks in various countries in the models.</li>
+                        <li>Constructed a data-driven pandemic warning and forecasting platform to visualize the data and predict outbreaks of COVID-19 based on a cluster of pandemic compartmental models.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-title">Researcher in Lab of Biomathematics</div>
+                <div class="experience-company">Shaanxi Normal University, School of Mathematic and Statistical</div>
+                <div class="experience-date">September 2018 - December 2019</div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Founded and proved the coexistence of equilibrium in the Riker model with a saturation function through theoretical derivation.</li>
+                        <li>Proved theoretically the relationship between the number of stochastic disturbances and the number of blurred orbits of the model, and conducted a bifurcation analysis on the disturbances.</li>
+                        <li>Proved the Poincare map's existence as well as depicted its diagram by numerical simulation.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="publications" class="publications-section">
+            <h2 class="section-title">PUBLICATIONS</h2>
+            
+            <div class="publications-list">
+                <div class="publication-item">
+                    <div class="publication-title">Brief Presentation about My Publications:</div>
+                    <div class="publication-link"><a href="https://www.youtube.com/watch?v=c_3tYq9NVA&t=3s" target="_blank">YouTube Video</a></div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-title">Impact of meteorological factors and control measures on spread of COVID-19 pandemic</div>
+                    <div class="publication-authors">Qinling Yan, Peiyu Liu, and Sanyi Tang. (2022)</div>
+                    <div class="publication-journal">Infectious Diseases of Poverty, Under Review.</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-title">Qualitative analysis of a tumor-immune model with impulsive control strategies at fixed time</div>
+                    <div class="publication-authors">Gang Wang, Weiping Ding, Zaiyu Zhang, Peiyu Liu. (2022)</div>
+                    <div class="publication-journal">Journal of Hunan Institute of Science and Technology, 35(3): 1-6.</div>
+                    <div class="publication-link"><a href="https://doi.org/10.16740/j.cnki.cn43-1421/n.2022.03.017" target="_blank">DOI: 10.16740/j.cnki.cn43-1421/n.2022.03.017</a></div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-title">The effect of control measures on COVID-19 transmission in Italy: Comparison with Guangdong province in China</div>
+                    <div class="publication-authors">Peiyu Liu, Sha He, Libin Rong, and Sanyi Tang. (2020)</div>
+                    <div class="publication-journal">Infectious Diseases of Poverty, 9(130):1-13.</div>
+                    <div class="publication-link"><a href="https://doi.org/10.1186/s40249-020-00730-2" target="_blank">DOI: 10.1186/s40249-020-00730-2</a></div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-title">The challenges of the coming mass vaccination and exit strategy in prevention and control of COVID-19, a modelling study</div>
+                    <div class="publication-authors">Biao Tang, Peiyu Liu, Jie Yang, Jianhong Wu, Sanyi Tang, Yanni Xiao. (2020)</div>
+                    <div class="publication-link"><a href="https://doi.org/10.1101/2020.12.18.20248478" target="_blank">https://doi.org/10.1101/2020.12.18.20248478</a></div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-title">Differences in how interventions coupled with effective reproduction numbers account for marked variations in COVID-19 epidemic outcomes</div>
+                    <div class="publication-authors">Fan Xia, Yanni Xiao, Peiyu Liu, Robert Cheke. (2020)</div>
+                    <div class="publication-journal">Mathematical Biosciences and Engineering, 17:85-98.</div>
+                    <div class="publication-link"><a href="http://dx.doi.org/10.3934/mbe.2020274" target="_blank">http://dx.doi.org/10.3934/mbe.2020274</a></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills-section">
+            <h2 class="section-title">SKILLS</h2>
+            
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">Matlab</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">C</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Statistical Methods</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Survival Analysis</span>
+                        <span class="skill-tag">Cox-ph Model</span>
+                        <span class="skill-tag">Generalized Additive Models</span>
+                        <span class="skill-tag">Spatial Statistics</span>
+                        <span class="skill-tag">Time Series Analysis</span>
+                        <span class="skill-tag">Regression Analysis</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Mathematical Modeling</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Differential Equations</span>
+                        <span class="skill-tag">Compartmental Models</span>
+                        <span class="skill-tag">Bifurcation Analysis</span>
+                        <span class="skill-tag">Dynamical Systems</span>
+                        <span class="skill-tag">Epidemic Modeling</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2 class="section-title">CONTACT</h2>
+            <div class="contact-container">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-label">Email:</span>
+                        <a href="mailto:peiyuliu@ufl.edu">peiyuliu@ufl.edu</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Google Scholar:</span>
+                        <a href="https://scholar.google.com/citations?hl=zh-CN&user=O6KFoOUAAAAJ" target="_blank">View Profile</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Location:</span>
+                        <span>University of Florida, Department of Biostatistics</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="resume" class="resume-section">
+            <h2 class="section-title">RESUME</h2>
+            <div class="resume-download">
+                <p>Download my full CV for more detailed information about my research experience, publications, and academic background.</p>
+                <a href="#" class="download-btn">Download CV (PDF)</a>
+            </div>
+            
+            <div class="resume-preview">
+                <p>For a quick overview of my qualifications:</p>
+                <ul>
+                    <li>Ph.D in Biostatistics, University of Florida (Current)</li>
+                    <li>MS in Computational Mathematics, Shaanxi Normal University</li>
+                    <li>BS in Statistics, Shaanxi Normal University</li>
+                    <li>Multiple published papers in epidemiological modeling and infectious diseases</li>
+                    <li>Research experience in mathematical modeling, biostatistics, and data analysis</li>
+                    <li>Experience with R, Matlab, Python and other programming languages</li>
+                </ul>
+            </div>
+        </section>
     </main>
 
     <footer>
-        <p>© 2025 Your Name. All rights reserved.</p>
-        <p>Built with 💜 and a lot of ☕</p>
+        <p>© 2025 Peiyu Liu. All rights reserved.</p>
+        <p>Last updated: March 2025</p>
     </footer>
 
     <div class="page-navigation">
-        <div class="nav-dot active"></div>
-        <div class="nav-dot"></div>
-        <div class="nav-dot"></div>
-        <div class="nav-dot"></div>
-        <div class="nav-dot"></div>
-        <div class="nav-dot"></div>
+        <div class="nav-dot active" data-section="home"></div>
+        <div class="nav-dot" data-section="about"></div>
+        <div class="nav-dot" data-section="work"></div>
+        <div class="nav-dot" data-section="publications"></div>
+        <div class="nav-dot" data-section="skills"></div>
+        <div class="nav-dot" data-section="contact"></div>
+        <div class="nav-dot" data-section="resume"></div>
     </div>
-    <!-- Make sure script references are correct -->
+    
+    <!-- Scripts with appropriate functionality -->
     <script src="spark-effect.js"></script>
     <script src="script.js"></script>
+    <script src="debug.js"></script>
 </body>
 </html>
