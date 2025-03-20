@@ -8,8 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
     canvas.style.top = '0';
     canvas.style.left = '0';
     canvas.style.pointerEvents = 'none'; // Make sure it doesn't interfere with clicks
-    canvas.style.zIndex = '0'; // Place it behind content
-    canvas.style.opacity = '0.6'; // Lower opacity for subtlety
+    canvas.style.zIndex = '10'; // Place above content to ensure effects are visible
+    canvas.style.opacity = '0.8'; // Slightly higher opacity for better visibility
+    canvas.style.backgroundColor = 'transparent'; // Ensure no background color
     document.body.appendChild(canvas);
     
     const ctx = canvas.getContext('2d');
@@ -260,9 +261,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Animation loop with faster fade for clean look
     function animate() {
-        // Clear canvas completely with solid white for no trails
-        ctx.fillStyle = 'rgba(255, 255, 255, 1)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        // Make canvas fully transparent - don't show any background at all
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
         
         // Update and draw all sparks
         sparks = sparks.filter(spark => {

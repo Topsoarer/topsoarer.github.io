@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         html, body {
-            background-color: #ffffff; /* Fixed white background */
+            background-color: #ffffff !important; /* Force white background */
             color: #333333;
             font-family: 'Poppins', sans-serif;
             overscroll-behavior: none;
@@ -23,6 +23,30 @@
         }
         section:nth-child(even) {
             background-color: #ffffff !important; /* Keep even sections white as well */
+        }
+        
+        /* Additional fixes for text clarity */
+        .name-glow {
+            color: #c1b2ff !important;
+            -webkit-text-fill-color: initial !important;
+            background: none !important;
+            background-clip: initial !important;
+            -webkit-background-clip: initial !important;
+            text-shadow: 0 0 10px rgba(193, 178, 255, 0.4) !important;
+        }
+        
+        .title-text {
+            color: #00c896 !important;
+        }
+        
+        /* Fix buttons */
+        .primary-btn {
+            background: #00c896 !important;
+        }
+        
+        .secondary-btn {
+            border: 2px solid #00c896 !important;
+            color: #00c896 !important;
         }
     </style>
 </head>
@@ -326,6 +350,7 @@
     </div>
     
     <!-- Scripts with appropriate functionality -->
+    <script src="css-loader.js"></script>
     <script src="spark-effect.js"></script>
     <script src="script.js"></script>
     <script src="debug.js"></script>
