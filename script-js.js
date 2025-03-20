@@ -3,32 +3,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('section');
     const navDots = document.querySelectorAll('.nav-dot');
     
-    // Make the page draggable for navigation
-    let isDown = false;
-    let startY;
-    let scrollTop;
+    // Remove page dragging functionality
+    // The original dragging code has been removed to prevent scrolling when dragging
     
-    document.addEventListener('mousedown', (e) => {
-        isDown = true;
-        startY = e.pageY;
-        scrollTop = window.pageYOffset;
-    });
+    // Disable overscroll behavior to prevent page bouncing
+    document.body.style.overscrollBehavior = 'none';
     
-    document.addEventListener('mouseleave', () => {
-        isDown = false;
-    });
-    
-    document.addEventListener('mouseup', () => {
-        isDown = false;
-    });
-    
-    document.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const y = e.pageY;
-        const walk = (startY - y) * 2; // Adjust the scroll speed
-        window.scrollTo(0, scrollTop + walk);
-    });
+    // Update drag info text
+    const dragInfo = document.querySelector('.drag-info');
+    if (dragInfo) {
+        dragInfo.textContent = 'DRAG FOR EFFECT';
+    }
     
     // Highlight active nav dot based on scroll position
     window.addEventListener('scroll', () => {
@@ -84,7 +69,6 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             
             // For a real implementation, you would send the form data to your server
-            // For now, we'll just show a success message
             const formData = new FormData(this);
             let formValues = {};
             
@@ -104,18 +88,20 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Typing animation for the title
     const titleElement = document.querySelector('.title-text');
-    const titleText = titleElement.textContent;
-    titleElement.textContent = '';
-    
-    let charIndex = 0;
-    function typeWriter() {
-        if (charIndex < titleText.length) {
-            titleElement.textContent += titleText.charAt(charIndex);
-            charIndex++;
-            setTimeout(typeWriter, 100);
+    if (titleElement) {
+        const titleText = titleElement.textContent;
+        titleElement.textContent = '';
+        
+        let charIndex = 0;
+        function typeWriter() {
+            if (charIndex < titleText.length) {
+                titleElement.textContent += titleText.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeWriter, 100);
+            }
         }
+        
+        // Start the typing animation after a short delay
+        setTimeout(typeWriter, 500);
     }
-    
-    // Start the typing animation after a short delay
-    setTimeout(typeWriter, 500);
 });

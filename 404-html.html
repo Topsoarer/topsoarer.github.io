@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Not Found</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-css.css">
     <style>
+        html, body {
+            overscroll-behavior: none;
+            height: 100%;
+        }
+        
         .error-container {
             height: 100vh;
             display: flex;
@@ -14,6 +19,7 @@
             align-items: center;
             text-align: center;
             padding: 0 2rem;
+            background-color: var(--bg-color);
         }
         
         .error-code {
@@ -26,6 +32,7 @@
         .error-message {
             font-size: 1.5rem;
             margin-bottom: 2rem;
+            color: var(--text-color);
         }
         
         .home-link {
@@ -40,5 +47,8 @@
         <p>The page you're looking for doesn't exist or has been moved.</p>
         <a href="index.html" class="btn primary-btn home-link">Back to Home</a>
     </div>
+    
+    <!-- Add spark effect to 404 page as well -->
+    <script src="spark-effect.js"></script>
 </body>
 </html>

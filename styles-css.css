@@ -5,10 +5,10 @@
     --dark-green: #1d5331;
     --light-purple: #d4c1fb;
     --dark-purple: #6c40bf;
-    --bg-color: #0a0a0a;
-    --text-color: #f5f5f5;
-    --card-bg: #151515;
-    --border-color: #333;
+    --bg-color: #e6d6ff; /* 更改为淡紫色背景 */
+    --text-color: #00994d; /* 更改为绿色文字 */
+    --card-bg: #f5ebff; /* 更改卡片背景为更浅的紫色 */
+    --border-color: #b599e2; /* 边框颜色调整 */
 }
 
 * {
@@ -23,6 +23,8 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
+    /* 禁用拖动 */
+    overscroll-behavior: none;
 }
 
 a {
@@ -61,7 +63,7 @@ header {
     width: 100%;
     z-index: 100;
     backdrop-filter: blur(10px);
-    background-color: rgba(10, 10, 10, 0.7);
+    background-color: rgba(230, 214, 255, 0.8); /* 与背景色匹配 */
 }
 
 .drag-info {
@@ -413,7 +415,7 @@ section {
 
 .project-image {
     height: 180px;
-    background-color: #333;
+    background-color: #d1b9ff; /* 更浅的紫色 */
     position: relative;
 }
 
@@ -566,7 +568,7 @@ footer {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: #555;
+    background-color: #b599e2; /* 更改为紫色 */
     transition: all 0.3s ease;
     cursor: pointer;
 }

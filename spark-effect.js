@@ -24,14 +24,14 @@ document.addEventListener('DOMContentLoaded', function() {
         constructor(x, y, color) {
             this.x = x;
             this.y = y;
-            this.vx = (Math.random() - 0.5) * 12; // Increased velocity for more dramatic effect
-            this.vy = (Math.random() - 0.5) * 12;
-            this.size = Math.random() * 5 + 2; // Larger particles
+            this.vx = (Math.random() - 0.5) * 10; // Reduced velocity for less dramatic effect
+            this.vy = (Math.random() - 0.5) * 10;
+            this.size = Math.random() * 4 + 1; // Smaller particles
             this.alpha = 1;
             this.decay = Math.random() * 0.02 + 0.005; // Slower decay for longer trails
             this.color = color || this.getRandomColor();
-            this.gravity = 0.07; // Reduced gravity for longer arcs
-            this.drag = 0.97; // Less drag for faster movement
+            this.gravity = 0.05; // Reduced gravity for shorter arcs
+            this.drag = 0.98; // Less drag for faster movement
             this.life = 1;
             
             // Add flicker effect
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Mouse events for desktop WITH prevention of page scrolling while dragging
+    // Mouse events for desktop - PREVENT PAGE SCROLLING
     document.addEventListener('mousedown', function(e) {
         isMouseDown = true;
         lastX = currentX = e.clientX;
@@ -163,6 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     document.addEventListener('mousemove', function(e) {
+        // Always update current position
         currentX = e.clientX;
         currentY = e.clientY;
         
@@ -174,8 +175,8 @@ document.addEventListener('DOMContentLoaded', function() {
             velocityY = currentY - lastY;
             const speed = Math.sqrt(velocityX * velocityX + velocityY * velocityY);
             
-            // Create more sparks with higher speed, and increased base amount
-            const sparkCount = Math.min(Math.floor(speed * 1.5 + 5), 30);
+            // Create more sparks with higher speed
+            const sparkCount = Math.min(Math.floor(speed * 0.5 + 3), 15); // Reduced number of sparks
             if (sparkCount > 0) {
                 createSparks(currentX, currentY, sparkCount, speed);
             }
@@ -193,20 +194,17 @@ document.addEventListener('DOMContentLoaded', function() {
         isMouseDown = false;
     });
     
-    // Touch events for mobile with explicit prevention of scrolling
+    // Touch events for mobile - PREVENT SCROLLING
     document.addEventListener('touchstart', function(e) {
         isMouseDown = true;
         lastX = currentX = e.touches[0].clientX;
         lastY = currentY = e.touches[0].clientY;
         
-        // Prevent scrolling
-        e.preventDefault();
+        // Do NOT prevent default here to allow normal touch behavior
     });
     
     document.addEventListener('touchmove', function(e) {
-        // Prevent scrolling when dragging
-        e.preventDefault();
-        
+        // Update current position
         currentX = e.touches[0].clientX;
         currentY = e.touches[0].clientY;
         
@@ -214,23 +212,24 @@ document.addEventListener('DOMContentLoaded', function() {
         velocityY = currentY - lastY;
         const speed = Math.sqrt(velocityX * velocityX + velocityY * velocityY);
         
-        // Create more sparks with higher speed
-        const sparkCount = Math.min(Math.floor(speed * 1.5 + 5), 30);
+        // Create sparks
+        const sparkCount = Math.min(Math.floor(speed * 0.5 + 3), 15);
         if (sparkCount > 0) {
             createSparks(currentX, currentY, sparkCount, speed);
+            
+            // Only prevent default if we're creating sparks
+            // This allows scrolling when not actively generating effects
+            if (sparkCount > 5) {
+                e.preventDefault();
+            }
         }
         
         lastX = currentX;
         lastY = currentY;
-    });
+    }, { passive: false }); // passive: false is required to call preventDefault
     
     document.addEventListener('touchend', function() {
         isMouseDown = false;
-    });
-    
-    // Prevent default dragging behavior of the entire document
-    document.addEventListener('dragstart', function(e) {
-        e.preventDefault();
     });
     
     // Animation loop with improved rendering
@@ -262,17 +261,4 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Start the animation
     animate();
-    
-    // Fix for mobile dragging - prevent default on the document level
-    document.body.addEventListener('touchmove', function(e) {
-        if (isMouseDown) {
-            e.preventDefault();
-        }
-    }, { passive: false });
-    
-    // Allow dragging on specific elements without scrolling
-    const draggableContent = document.querySelector('body');
-    if (draggableContent) {
-        draggableContent.style.touchAction = 'none';
-    }
 });
