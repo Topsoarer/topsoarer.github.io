@@ -3,31 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Developer Portfolio</title>
-    <!-- Fixed stylesheet reference -->
+    <title>Your Name - Academic Portfolio</title>
+    <!-- Changed file reference to styles.css -->
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Add fallback styles to ensure content visibility -->
+    <!-- Fallback styles to ensure visibility -->
     <style>
-        /* Fallback styles to ensure content is visible even before CSS loads */
         html, body {
-            background-color: #e6d6ff;
+            background-color: #f5f9ff;
             color: #00994d;
             font-family: 'Poppins', sans-serif;
             overscroll-behavior: none;
         }
-        
-        /* Ensure text readability */
-        p, h1, h2, h3, h4, h5, h6, span, a, div {
-            text-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
-        }
-        
-        section {
-            background-color: rgba(230, 214, 255, 0.9);
-            margin: 1rem 0;
-            border-radius: 8px;
+        header {
+            background-color: #e6d6ff;
         }
     </style>
 </head>
@@ -270,10 +261,8 @@
         <div class="nav-dot"></div>
     </div>
     
-    <!-- Scripts with correct file names -->
+    <!-- Scripts with corrected file names -->
     <script src="spark-effect.js"></script>
     <script src="script.js"></script>
-    <!-- Add debug script to help identify issues -->
-    <script src="debug.js"></script>
 </body>
 </html>

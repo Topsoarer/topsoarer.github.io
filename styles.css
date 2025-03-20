@@ -6,9 +6,9 @@
     --light-purple: #d4c1fb;
     --header-purple: #e6d6ff; /* Purple for header/navigation */
     --dark-purple: #6c40bf;
-    --bg-color: #ffffff; /* White background for better text visibility */
+    --bg-color: #f5f9ff; /* Light blue background */
     --text-color: #00994d; /* Green text */
-    --card-bg: #f8f5ff; /* Very light purple for cards */
+    --card-bg: #ffffff; /* White for cards */
     --border-color: #b599e2;
 }
 
@@ -29,7 +29,7 @@ body {
 
 /* Improved text visibility */
 p, h1, h2, h3, h4, h5, h6, span, a, div {
-    text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
 }
 
 a {
@@ -120,7 +120,7 @@ nav a:hover:after {
     padding: 0 10%;
     position: relative;
     overflow: hidden;
-    background-color: #f0f8f3; /* Very light green/white background for hero section */
+    background-color: #ffffff; /* White background for hero section */
 }
 
 .hero:before {
@@ -132,7 +132,7 @@ nav a:hover:after {
     background: radial-gradient(var(--dark-green), transparent 70%);
     top: 20%;
     right: 15%;
-    opacity: 0.1; /* Reduced opacity */
+    opacity: 0.07; /* Very reduced opacity */
     filter: blur(50px);
     z-index: -1;
 }
@@ -146,7 +146,7 @@ nav a:hover:after {
     background: radial-gradient(var(--dark-purple), transparent 70%);
     bottom: 20%;
     right: 10%;
-    opacity: 0.1; /* Reduced opacity */
+    opacity: 0.07; /* Very reduced opacity */
     filter: blur(60px);
     z-index: -1;
 }
@@ -156,7 +156,7 @@ nav a:hover:after {
     font-weight: 700;
     margin-bottom: 1rem;
     color: var(--primary-green);
-    text-shadow: 0 0 15px rgba(62, 255, 139, 0.7);
+    text-shadow: 0 0 15px rgba(62, 255, 139, 0.3);
 }
 
 .title-text {
@@ -179,7 +179,7 @@ nav a:hover:after {
     margin-bottom: 2rem;
     font-size: 1.2rem;
     opacity: 1;
-    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white for better readability */
+    background-color: rgba(255, 255, 255, 0.7);
     padding: 1rem;
     border-radius: 8px;
     border-left: 3px solid var(--primary-green);
@@ -215,7 +215,7 @@ nav a:hover:after {
 .secondary-btn {
     border: 2px solid var(--primary-green);
     color: var(--primary-green);
-    background-color: rgba(255, 255, 255, 0.7); /* More visible background */
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 .secondary-btn:hover {
@@ -239,7 +239,7 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: var(--bg-color); /* White background for content sections */
+    background-color: var(--bg-color);
     margin: 1rem 0;
     border-radius: 8px;
 }
@@ -265,7 +265,7 @@ section {
 /* About Section */
 .about-section {
     position: relative;
-    background-color: #f8f5ff; /* Very light purple background */
+    background-color: #ffffff; /* White background */
 }
 
 .about-content {
@@ -305,7 +305,7 @@ section {
 
 /* Skills Section */
 .skills-section {
-    background-color: #f0f8f3; /* Very light green background */
+    background-color: var(--bg-color);
 }
 
 .skills-container {
@@ -353,7 +353,7 @@ section {
 
 /* Work Section */
 .work-section {
-    background-color: #f8f5ff; /* Very light purple background */
+    background-color: #ffffff; /* White background */
 }
 
 .timeline {
@@ -426,7 +426,7 @@ section {
 
 /* Projects Section */
 .projects-section {
-    background-color: #f0f8f3; /* Very light green background */
+    background-color: var(--bg-color);
 }
 
 .projects-grid {
@@ -505,7 +505,7 @@ section {
 
 /* Contact Section */
 .contact-section {
-    background-color: #f8f5ff; /* Very light purple background */
+    background-color: #ffffff; /* White background */
 }
 
 .contact-container {

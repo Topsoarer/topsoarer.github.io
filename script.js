@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('section');
     const navDots = document.querySelectorAll('.nav-dot');
     
-    // Disable overscroll behavior to prevent page bouncing
+    // Disable overscroll behavior for smoother experience
     document.body.style.overscrollBehavior = 'none';
     
     // Highlight active nav dot based on scroll position
@@ -52,32 +52,119 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Form submission
+    // Form submission with validation
     const contactForm = document.querySelector('.contact-form');
     
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // For a real implementation, you would send the form data to your server
-            const formData = new FormData(this);
-            let formValues = {};
+            // Basic form validation
+            let isValid = true;
+            const name = this.querySelector('#name').value.trim();
+            const email = this.querySelector('#email').value.trim();
+            const message = this.querySelector('#message').value.trim();
             
-            for (let [key, value] of formData.entries()) {
-                formValues[key] = value;
+            if (name === '') {
+                isValid = false;
+                highlightInvalidField(this.querySelector('#name'), 'Please enter your name');
             }
             
-            console.log('Form submitted:', formValues);
+            if (email === '' || !isValidEmail(email)) {
+                isValid = false;
+                highlightInvalidField(this.querySelector('#email'), 'Please enter a valid email address');
+            }
             
-            // Reset the form
-            this.reset();
+            if (message === '') {
+                isValid = false;
+                highlightInvalidField(this.querySelector('#message'), 'Please enter your message');
+            }
             
-            // Show success message
-            alert('Thank you for your message! I will get back to you soon.');
+            if (isValid) {
+                // For a real implementation, you would send the form data to your server
+                const formData = new FormData(this);
+                let formValues = {};
+                
+                for (let [key, value] of formData.entries()) {
+                    formValues[key] = value;
+                }
+                
+                console.log('Form submitted:', formValues);
+                
+                // Reset the form
+                this.reset();
+                
+                // Show success message
+                showFormSuccess();
+            }
+        });
+        
+        // Add input event listeners to clear errors when user starts typing
+        contactForm.querySelectorAll('input, textarea').forEach(field => {
+            field.addEventListener('input', function() {
+                this.classList.remove('error');
+                const errorMessage = this.parentNode.querySelector('.error-message');
+                if (errorMessage) {
+                    errorMessage.remove();
+                }
+            });
         });
     }
     
-    // Typing animation for the title
+    // Helper function to validate email format
+    function isValidEmail(email) {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailPattern.test(email);
+    }
+    
+    // Helper function to highlight invalid form fields
+    function highlightInvalidField(field, message) {
+        field.classList.add('error');
+        
+        // Remove existing error message if any
+        const existingError = field.parentNode.querySelector('.error-message');
+        if (existingError) {
+            existingError.remove();
+        }
+        
+        // Add error message
+        const errorMessage = document.createElement('div');
+        errorMessage.className = 'error-message';
+        errorMessage.textContent = message;
+        errorMessage.style.color = '#ff3860';
+        errorMessage.style.fontSize = '0.8rem';
+        errorMessage.style.marginTop = '0.25rem';
+        field.parentNode.appendChild(errorMessage);
+    }
+    
+    // Helper function to show success message
+    function showFormSuccess() {
+        // Create success message element
+        const successMessage = document.createElement('div');
+        successMessage.className = 'success-message';
+        successMessage.textContent = 'Thank you for your message! I will get back to you soon.';
+        successMessage.style.backgroundColor = 'rgba(62, 255, 139, 0.2)';
+        successMessage.style.color = '#00994d';
+        successMessage.style.padding = '1rem';
+        successMessage.style.borderRadius = '4px';
+        successMessage.style.marginTop = '1rem';
+        successMessage.style.textAlign = 'center';
+        
+        // Add to form container
+        const formContainer = contactForm.parentNode;
+        formContainer.insertBefore(successMessage, contactForm.nextSibling);
+        
+        // Remove after 5 seconds
+        setTimeout(() => {
+            successMessage.style.opacity = '0';
+            successMessage.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                successMessage.remove();
+            }, 500);
+        }, 5000);
+    }
+    
+    // Subtle typing animation for professional look
     const titleElement = document.querySelector('.title-text');
     if (titleElement) {
         const titleText = titleElement.textContent;
@@ -88,11 +175,26 @@ document.addEventListener('DOMContentLoaded', function() {
             if (charIndex < titleText.length) {
                 titleElement.textContent += titleText.charAt(charIndex);
                 charIndex++;
-                setTimeout(typeWriter, 100);
+                setTimeout(typeWriter, 80); // Slightly faster for more professional feel
             }
         }
         
         // Start the typing animation after a short delay
         setTimeout(typeWriter, 500);
     }
+    
+    // Add subtle hover effect to project cards
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px)';
+            this.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+            this.style.boxShadow = '0 10px 20px rgba(62, 255, 139, 0.2)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.05)';
+        });
+    });
 });
