@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     canvas.style.left = '0';
     canvas.style.pointerEvents = 'none'; // Make sure it doesn't interfere with clicks
     canvas.style.zIndex = '1'; // Lower z-index so it stays behind content
-    canvas.style.opacity = '0.6'; // Reduce overall opacity
+    canvas.style.opacity = '0.8'; // Adjust opacity for white background
     document.body.appendChild(canvas);
     
     const ctx = canvas.getContext('2d');
@@ -25,13 +25,13 @@ document.addEventListener('DOMContentLoaded', function() {
         constructor(x, y, color) {
             this.x = x;
             this.y = y;
-            this.vx = (Math.random() - 0.5) * 6; // Reduced velocity
-            this.vy = (Math.random() - 0.5) * 6;
+            this.vx = (Math.random() - 0.5) * 5; // Reduced velocity
+            this.vy = (Math.random() - 0.5) * 5;
             this.size = Math.random() * 2 + 1; // Smaller particles
             this.alpha = 0.7; // Lower initial alpha
             this.decay = Math.random() * 0.03 + 0.01; // Faster decay for shorter trails
             this.color = color || this.getRandomColor();
-            this.gravity = 0.05;
+            this.gravity = 0.03;
             this.drag = 0.98;
             this.life = 1;
             
@@ -40,14 +40,14 @@ document.addEventListener('DOMContentLoaded', function() {
             this.flickerIntensity = Math.random() * 0.2;
         }
         
-        // Generate more subtle colors
+        // Generate more vibrant colors for white background
         getRandomColor() {
-            // More subtle colors that don't interfere with text readability
+            // Adjusted colors for better visibility on white background
             const colors = [
-                'rgba(80, 255, 151, 0.6)', // More transparent green
-                'rgba(0, 255, 102, 0.5)',  // More transparent bright green
-                'rgba(224, 212, 255, 0.7)', // More transparent light purple
-                'rgba(138, 92, 255, 0.5)'  // More transparent bright purple
+                'rgba(0, 180, 80, 0.8)',  // Vibrant green
+                'rgba(80, 255, 151, 0.7)', // Light green
+                'rgba(100, 50, 200, 0.6)', // Purple
+                'rgba(138, 92, 255, 0.7)'  // Light purple
             ];
             return colors[Math.floor(Math.random() * colors.length)];
         }
@@ -64,9 +64,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Flickering effect
             if (this.flicker) {
-                this.alpha = this.life * (1 - this.flickerIntensity + Math.random() * this.flickerIntensity * 2) * 0.7; // Reduced alpha
+                this.alpha = this.life * (1 - this.flickerIntensity + Math.random() * this.flickerIntensity * 2) * 0.7;
             } else {
-                this.alpha = this.life * 0.7; // Reduced alpha
+                this.alpha = this.life * 0.7;
             }
             
             return this.life > 0;
@@ -81,11 +81,9 @@ document.addEventListener('DOMContentLoaded', function() {
             ctx.fillStyle = this.color;
             ctx.fill();
             
-            // Reduced glow effect
-            ctx.shadowBlur = 5; // Less blur
+            // Modest glow effect
+            ctx.shadowBlur = 4;
             ctx.shadowColor = this.color;
-            
-            // Skip the additional glow layer to make it more subtle
         }
     }
     
@@ -94,11 +92,11 @@ document.addEventListener('DOMContentLoaded', function() {
         constructor(x, y, color) {
             this.x = x;
             this.y = y;
-            this.vx = (Math.random() - 0.5) * 2; // Reduced velocity
+            this.vx = (Math.random() - 0.5) * 2;
             this.vy = (Math.random() - 0.5) * 2;
             this.size = Math.random() * 1 + 0.5; // Smaller particles
             this.color = color;
-            this.alpha = 0.6; // Lower alpha
+            this.alpha = 0.6;
             this.decay = Math.random() * 0.07 + 0.03; // Faster decay
             this.life = 1;
         }
@@ -107,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
             this.x += this.vx;
             this.y += this.vy;
             this.life -= this.decay;
-            this.alpha = this.life * 0.6; // Reduced alpha
+            this.alpha = this.life * 0.6;
             return this.life > 0;
         }
         
@@ -135,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Create sparks when dragging - fewer sparks for subtlety
     function createSparks(x, y, amount, speed) {
-        const baseColors = ['rgba(80, 255, 151, 0.6)', 'rgba(224, 212, 255, 0.7)'];
+        const baseColors = ['rgba(0, 180, 80, 0.8)', 'rgba(138, 92, 255, 0.7)'];
         
         // Limit the number of sparks for subtlety
         const actualAmount = Math.min(amount, 5);
@@ -219,10 +217,10 @@ document.addEventListener('DOMContentLoaded', function() {
         isMouseDown = false;
     });
     
-    // Animation loop with faster fade for subtle effect
+    // Animation loop with transparent white fade for better effect on white background
     function animate() {
-        // Faster fade for more subtle trail effect
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';  // Faster clearing for shorter trails
+        // Semi-transparent white for more subtle trail effect on white background
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         
         // Update and draw all sparks
