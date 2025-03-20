@@ -14,18 +14,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Add visual indicator that script is running
+    // Add invisible debug indicator (hidden as requested)
     const debugElement = document.createElement('div');
     debugElement.style.position = 'fixed';
     debugElement.style.top = '10px';
     debugElement.style.right = '10px';
-    debugElement.style.backgroundColor = 'rgba(0,200,150,0.7)'; // Changed to match green accent color
+    debugElement.style.backgroundColor = 'transparent'; // Made transparent
     debugElement.style.padding = '5px 10px';
     debugElement.style.borderRadius = '5px';
     debugElement.style.zIndex = '10000';
-    debugElement.style.color = 'white';
+    debugElement.style.color = 'transparent'; // Made transparent
     debugElement.style.fontSize = '12px';
     debugElement.textContent = 'Debug Active';
+    debugElement.style.opacity = '0'; // Made fully invisible
     document.body.appendChild(debugElement);
     
     // Check color application

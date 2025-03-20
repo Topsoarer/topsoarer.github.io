@@ -22,7 +22,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--bg-color);
+    background-color: #f5f7fa; /* Light blue-gray background consistent with hero */
     color: var(--text-color);
     line-height: 1.8;
     overflow-x: hidden;
@@ -133,7 +133,7 @@ nav a:hover:after {
     padding: 0 10%;
     position: relative;
     overflow: hidden;
-    background-color: var(--bg-color);
+    background-color: #f5f7fa; /* Light blue-gray background */
 }
 
 .hero::before {
@@ -145,7 +145,7 @@ nav a:hover:after {
     background: radial-gradient(circle, var(--primary-light) 0%, rgba(255,255,255,0) 70%);
     top: -200px;
     right: -200px;
-    opacity: 0.3;
+    opacity: 0.1; /* Reduced opacity */
     z-index: -1;
 }
 
@@ -158,7 +158,7 @@ nav a:hover:after {
     background: radial-gradient(circle, var(--accent-light) 0%, rgba(255,255,255,0) 70%);
     bottom: -100px;
     left: -100px;
-    opacity: 0.3;
+    opacity: 0.1; /* Reduced opacity */
     z-index: -1;
 }
 

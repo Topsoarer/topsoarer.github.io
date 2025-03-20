@@ -87,6 +87,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentX = 0;
     let currentY = 0;
     
+    // Set a timer to clear all sparks after a short period of inactivity
+    let sparkClearTimer = null;
+    
     // Create sparks when dragging - fewer sparks for subtlety
     function createSparks(x, y, amount) {
         const actualAmount = Math.min(amount, 4); // Limit the number of sparks
@@ -132,10 +135,22 @@ document.addEventListener('DOMContentLoaded', function() {
     
     document.addEventListener('mouseup', function() {
         isMouseDown = false;
+        
+        // Clear all sparks after a short delay when mouse is released
+        clearTimeout(sparkClearTimer);
+        sparkClearTimer = setTimeout(() => {
+            sparks = [];
+        }, 300);
     });
     
     document.addEventListener('mouseleave', function() {
         isMouseDown = false;
+        
+        // Clear all sparks when mouse leaves the window
+        clearTimeout(sparkClearTimer);
+        sparkClearTimer = setTimeout(() => {
+            sparks = [];
+        }, 300);
     });
     
     // Touch events for mobile - prevent scrolling while dragging
@@ -173,12 +188,18 @@ document.addEventListener('DOMContentLoaded', function() {
     
     document.addEventListener('touchend', function() {
         isMouseDown = false;
+        
+        // Clear all sparks after a short delay when touch ends
+        clearTimeout(sparkClearTimer);
+        sparkClearTimer = setTimeout(() => {
+            sparks = [];
+        }, 300);
     });
     
     // Animation loop with faster fade for clean look
     function animate() {
-        // Clear canvas with semi-transparent white for subtle trails
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+        // Clear canvas completely with solid white for no trails
+        ctx.fillStyle = 'rgba(255, 255, 255, 1)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         
         // Update and draw all sparks
