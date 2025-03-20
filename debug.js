@@ -19,19 +19,24 @@ document.addEventListener('DOMContentLoaded', function() {
     debugElement.style.position = 'fixed';
     debugElement.style.top = '10px';
     debugElement.style.right = '10px';
-    debugElement.style.backgroundColor = 'rgba(0,255,0,0.7)';
+    debugElement.style.backgroundColor = 'rgba(0,200,150,0.7)'; // Changed to match green accent color
     debugElement.style.padding = '5px 10px';
     debugElement.style.borderRadius = '5px';
     debugElement.style.zIndex = '10000';
-    debugElement.style.color = 'black';
+    debugElement.style.color = 'white';
     debugElement.style.fontSize = '12px';
     debugElement.textContent = 'Debug Active';
     document.body.appendChild(debugElement);
     
-    // Force body to have visible background if not already set
-    document.body.style.backgroundColor = '#e6d6ff';
-    document.body.style.color = '#00994d';
-    document.documentElement.style.backgroundColor = '#e6d6ff';
+    // Check color application
+    const headerElement = document.querySelector('header');
+    if (headerElement) {
+        // Ensure header has the correct background color
+        if (getComputedStyle(headerElement).backgroundColor !== 'rgb(230, 214, 255)') {
+            console.log('Debug: Applying header background color manually');
+            headerElement.style.backgroundColor = '#e6d6ff';
+        }
+    }
     
     // Check for any JS errors that might prevent page rendering
     window.onerror = function(message, source, lineno, colno, error) {
@@ -53,4 +58,27 @@ document.addEventListener('DOMContentLoaded', function() {
         
         return false;
     };
+    
+    // Check if nav elements are styled correctly
+    const navNumbers = document.querySelectorAll('.nav-number');
+    navNumbers.forEach(navNumber => {
+        if (getComputedStyle(navNumber).color !== 'rgb(0, 200, 150)') {
+            console.log('Debug: Applying nav number color manually');
+            navNumber.style.color = '#00c896';
+        }
+    });
+    
+    // Ensure skill tags have the correct gradient
+    const skillTags = document.querySelectorAll('.skill-tag');
+    skillTags.forEach(tag => {
+        tag.style.background = 'linear-gradient(135deg, #c1b2ff 0%, #6c5ce7 100%)';
+    });
+    
+    // Check if page navigation dots are styled correctly
+    const navDots = document.querySelectorAll('.nav-dot');
+    navDots.forEach(dot => {
+        if (dot.classList.contains('active')) {
+            dot.style.backgroundColor = '#00c896';
+        }
+    });
 });

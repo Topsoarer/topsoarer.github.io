@@ -36,14 +36,14 @@ document.addEventListener('DOMContentLoaded', function() {
             this.life = 1;
         }
         
-        // Generate elegant colors for academic theme
+        // Generate elegant colors for academic theme - updated colors to match site theme
         getRandomColor() {
             // This will match the theme colors from CSS
             const colors = [
-                'rgba(0, 200, 150, 0.6)', // primary-green
-                'rgba(0, 146, 109, 0.5)', // primary-dark
-                'rgba(140, 122, 230, 0.5)', // accent-purple
-                'rgba(193, 178, 255, 0.5)'  // accent-light
+                'rgba(108, 92, 231, 0.6)', // primary purple
+                'rgba(193, 178, 255, 0.5)', // light purple
+                'rgba(0, 200, 150, 0.5)',   // accent green
+                'rgba(127, 255, 206, 0.5)'  // light green
             ];
             return colors[Math.floor(Math.random() * colors.length)];
         }
