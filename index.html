@@ -10,13 +10,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         html, body {
-            background-color: #f5f7fa; /* Light blue-gray background */
+            background-color: #ffffff; /* Fixed white background */
             color: #333333;
             font-family: 'Poppins', sans-serif;
             overscroll-behavior: none;
         }
         header {
             background-color: #e6d6ff;
+        }
+        section {
+            background-color: #ffffff !important; /* Force white background on all sections */
+        }
+        section:nth-child(even) {
+            background-color: #ffffff !important; /* Keep even sections white as well */
         }
     </style>
 </head>

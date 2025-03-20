@@ -7,8 +7,8 @@
     --accent-light: #7fffce; /* Lighter green */
     --text-color: #2a2a2a;
     --text-light: #666666;
-    --bg-color: #ffffff;
-    --bg-light: #f8f9fa;
+    --bg-color: #ffffff; /* Fixed white background */
+    --bg-light: #ffffff; /* Fixed white background */
     --card-bg: #ffffff;
     --border-color: #e8e8e8;
 }
@@ -22,7 +22,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f5f7fa; /* Light blue-gray background consistent with hero */
+    background-color: #ffffff; /* Fixed white background */
     color: var(--text-color);
     line-height: 1.8;
     overflow-x: hidden;
@@ -133,7 +133,7 @@ nav a:hover:after {
     padding: 0 10%;
     position: relative;
     overflow: hidden;
-    background-color: #f5f7fa; /* Light blue-gray background */
+    background-color: #ffffff; /* Fixed white background */
 }
 
 .hero::before {
